@@ -9,7 +9,6 @@ https://medium.com/codex/deploy-an-ubuntu-virtual-machine-with-docker-using-azur
 
 https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli
 
-** comments boo two
 
 docker pull mcr.microsoft.com/mssql/server
 
