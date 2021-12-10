@@ -5,7 +5,7 @@ param adminUsername string
 param dnsNameForPublicIP string
 
 @description('VM size for the Docker host.')
-param vmSize string = 'Standard_B2'
+param vmSize string = 'Standard_B2s'
 
 @description('The Ubuntu version for deploying the Docker containers. This will pick a fully patched image of this given Ubuntu version. Allowed values: 15.10, 16.04.0-LTS, 18.04-LTS')
 @allowed([
@@ -78,6 +78,45 @@ resource networkSecurityGroupName 'Microsoft.Network/networkSecurityGroups@2020-
           access: 'Allow'
           direction: 'Inbound'
           destinationPortRange: '22'
+          protocol: 'Tcp'
+          sourceAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+        }
+      }
+      {
+        name: 'default-allow-1433'
+        properties: {
+          priority: 1001
+          access: 'Allow'
+          direction: 'Inbound'
+          destinationPortRange: '1433'
+          protocol: 'Tcp'
+          sourceAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+        }
+      }
+      {
+        name: 'default-allow-80'
+        properties: {
+          priority: 1002
+          access: 'Allow'
+          direction: 'Inbound'
+          destinationPortRange: '80'
+          protocol: 'Tcp'
+          sourceAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+        }
+      }
+      {
+        name: 'default-allow-443'
+        properties: {
+          priority: 1003
+          access: 'Allow'
+          direction: 'Inbound'
+          destinationPortRange: '443'
           protocol: 'Tcp'
           sourceAddressPrefix: '*'
           sourcePortRange: '*'

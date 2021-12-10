@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "tssadmin"
+    },
+    "dnsNameForPublicIP": {
+      "value": "tssjjbdkr"
+    },
+    "adminPasswordOrKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCJjAEaujqBp6czoAGzvsO5T8e6KWe7gsepVQZwvjFGmrKoPvkZKrvk5lwYh5kuoTmFfhDgg19jBAetOvEKAcF1gVLPpsR0T7No1vtXwLQza6lZf0R0+CKdRjkzpaCTyMyEOEc5X1P9x3nRIE+oix3F/gBvvYaQ3vw+QowbI2HeaFaJjZQTJGC+gy7kjqZSPp7Aug5IRnnsUEhSdndpQfQ5qON2FGpp8AywS+0T2L72kr4qTSmqi6iE7kbTsxJ0ZkeGDbgII8mCsdwP7zdiLJAliFZXoo5sAVeVs3p70Es8uncirgvxqP9BeLgohJ3Po1KH4VWgzeuM9/bkC0SI999tF51/DHhjukfYAhkvsCu6tjCohEetXA9htGYQ6YUfrHm+R0lnyJmoqXt5jK6OGE9HvxBk2XZOHQs0RVHKt5rMA7iHVgM7t9vfVur91gYR+NfbdcDKUH6h555bk9S5MP6E8s1v2ChkT/gyiQwUjdDuOBQoRqqjnKEVx5i6W5QXRz2wmKz31WTHMNHeElo3xQhquztbc4BUI2ZjfxWYib9O6iCusyuzxxeN25LAYsIv1RatHmG4NSmLrSRIDcvB0WtqgMfxo9MTsRxrRvbE7I2oFd/IVqrxGhDBy+8pAErpij4diqezPviJWDH47hHviv2cPre5GAM0yp7KO/24Wi0zQ== ubuntu-vm"
+    }
+  }
+}
