@@ -12,6 +12,7 @@ param vmSize string = 'Standard_B1s'
   '14.04.5-LTS'
   '16.04-LTS'
   '18.04-LTS'
+  '20_04-lts-gen2'
 ])
 param ubuntuOSVersion string = '18.04-LTS'
 
@@ -30,7 +31,7 @@ param authenticationType string = 'sshPublicKey'
 param adminPasswordOrKey string
 
 var imagePublisher = 'Canonical'
-var imageOffer = 'UbuntuServer'
+var imageOffer = (ubuntuOSVersion == '20_04-lts-gen2') ? '0001-com-ubuntu-server-focal' : 'UbuntuServer'
 var nicName_var = 'tss-outline-vpn-nic'
 var extensionName = 'tss-outline-vpn-de'
 var addressPrefix = '10.0.0.0/16'
@@ -85,11 +86,24 @@ resource networkSecurityGroupName 'Microsoft.Network/networkSecurityGroups@2020-
         }
       }
       {
-        name: 'outline-port-range'
+        name: 'outline-port-range-in'
         properties: {
-          priority: 1007
+          priority: 1010
           access: 'Allow'
           direction: 'Inbound'
+          destinationPortRange: '1024-65535'
+          protocol: '*'
+          sourceAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+        }
+      }
+      {
+        name: 'outline-port-range-out'
+        properties: {
+          priority: 1020
+          access: 'Allow'
+          direction: 'Outbound'
           destinationPortRange: '1024-65535'
           protocol: '*'
           sourceAddressPrefix: '*'
