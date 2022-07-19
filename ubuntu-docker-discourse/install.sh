@@ -17,13 +17,23 @@ IFS=$'\n\t'
 
 sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y; apt-get autoclean -y'
 
+
 # install cockpit
 sudo apt -y install cockpit
 sudo systemctl --now enable cockpit.socket
 sudo ufw allow 9090/tcp
 
+# install discourse
+# https://github.com/discourse/discourse/blob/main/docs/INSTALL-cloud.md
 # clone discourse docker image
 sudo -s
 git clone https://github.com/discourse/discourse_docker.git /var/discourse
 cd /var/discourse
 chmod 700 containers
+
+# automatic security updates
+# sudo dpkg-reconfigure -plow unattended-upgrades
+# enforce a strong root password.
+# sudo apt install libpam-cracklib
+# blocks any IP addresses for 10 minutes that attempt more than 3 password retries
+# sudo apt install fail2ban
