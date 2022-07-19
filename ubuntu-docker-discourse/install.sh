@@ -18,8 +18,7 @@ IFS=$'\n\t'
 sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y; apt-get autoclean -y'
 
 # install cockpit
-. /etc/os-release
-sudo apt -y install -t ${VERSION_CODENAME}-backports cockpit
+sudo apt -y install cockpit
 sudo systemctl --now enable cockpit.socket
 sudo ufw allow 9090/tcp
 
@@ -27,4 +26,4 @@ sudo ufw allow 9090/tcp
 sudo -s
 git clone https://github.com/discourse/discourse_docker.git /var/discourse
 cd /var/discourse
-
+chmod 700 containers

@@ -58,18 +58,17 @@ $serviceAccountTenant=$rbac.tenant
 
 RetryCommand( { az login --service-principal -u $serviceAccountId -p $serviceAccountPassword --tenant $serviceAccountTenant })
 
+
 #cd to bicep script
 
 az deployment group create `
 --resource-group $resourceGroupName `
 --template-file $azureDeployBicepFile `
 --parameters  `
-  resourcePrefix=$resourceGroupName `
   dnsNameForPublicIP=$dnsNameForPublicIP `
   ubuntuOSVersion=$ubuntuOSVersion `
   vmSize=$vmSize `
   location=$resourceGroupLocation `
   authenticationType=$authenticationType `
   adminUsername=$adminUsername `
-  adminPasswordOrKey=$adminPasswordOrKey `
-  azureCloudEnv=$azureCloudEnv
+  adminPasswordOrKey=$adminPasswordOrKey

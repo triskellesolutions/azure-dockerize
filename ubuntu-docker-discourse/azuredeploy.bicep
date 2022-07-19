@@ -101,7 +101,7 @@ resource networkSecurityGroupName 'Microsoft.Network/networkSecurityGroups@2020-
       {
         name: 'web-https'
         properties: {
-          priority: 1000
+          priority: 1020
           access: 'Allow'
           direction: 'Inbound'
           destinationPortRange: '443'
@@ -114,7 +114,7 @@ resource networkSecurityGroupName 'Microsoft.Network/networkSecurityGroups@2020-
       {
         name: 'web-http'
         properties: {
-          priority: 1000
+          priority: 1030
           access: 'Allow'
           direction: 'Inbound'
           destinationPortRange: '80'

@@ -35,3 +35,6 @@ echo "# After that, ensure that the script is executable:                       
 echo "#                                                                                                                       "
 echo "# chmod a+x /etc/letsencrypt/deploy/update_cockpit_certificate.sh                                                       "
 echo "#*/                                                                                                                     "
+
+
+# 0 3 * * * certbot certonly --standalone -n -d idoe-dev.app.idoe.tsscloudservices.dev --pre-hook "docker stop proxy" --post-hook "cp /etc/letsencrypt/live/idoe-dev.app.idoe.tsscloudservices.dev/fullchain.pem /opt/vars/nginx/crt/dev/; cp /etc/letsencrypt/live/idoe-dev.app.idoe.tsscloudservices.dev/privkey.pem /opt/vars/nginx/key/dev; docker start proxy"
