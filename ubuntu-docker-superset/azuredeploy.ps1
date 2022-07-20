@@ -71,4 +71,5 @@ az deployment group create `
   location=$resourceGroupLocation `
   authenticationType=$authenticationType `
   adminUsername=$adminUsername `
-  adminPasswordOrKey=$adminPasswordOrKey
+  adminPasswordOrKey=$adminPasswordOrKey `
+  supersetAdminUserPassword=$supersetAdminPassword
