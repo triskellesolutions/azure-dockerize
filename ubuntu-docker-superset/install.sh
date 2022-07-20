@@ -34,19 +34,22 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 sudo certbot certonly --standalone --agree-tos --email certbot@triskelle.solutions -d $supersetDomainName
 
-sudo docker run \
-   --restart always \
-   --name superset \
-   -p 80:8080 \
-   -d apache/superset
+# sudo docker run -e "SUPERSET_OAUTH_KEY=" \
+#    -e "SUPERSET_OAUTH_SECRET=" \
+#    -e "SUPERSET_OAUTH_WHITELIST=" \
+#     -e "SUPERSET_HOME=/home/superset" \
+#    --restart always \
+#    --name superset \
+#    -p 80:8080 \
+#    -d apache/superset
 
-sudo docker exec -it superset superset fab create-admin \
-   --username $supersetAdminUser \
-   --firstname Superset \
-   --lastname Admin \
-   --email superset.admin@triskelle.solutions \
-   --password $supersetAdminUserPassword
+# sudo docker exec -it superset superset fab create-admin \
+#    --username $supersetAdminUser \
+#    --firstname Superset \
+#    --lastname Admin \
+#    --email superset.admin@triskelle.solutions \
+#    --password $supersetAdminUserPassword
 
-sudo docker exec -it superset superset db upgrade
-sudo docker exec -it superset superset load_examples
-sudo docker exec -it superset superset init
+# sudo docker exec -it superset superset db upgrade
+# sudo docker exec -it superset superset load_examples
+# sudo docker exec -it superset superset init

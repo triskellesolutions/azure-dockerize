@@ -72,4 +72,5 @@ az deployment group create `
   authenticationType=$authenticationType `
   adminUsername=$adminUsername `
   adminPasswordOrKey=$adminPasswordOrKey `
-  supersetAdminUserPassword=$supersetAdminPassword
+  supersetAdminUserPassword=$supersetAdminPassword `
+  supersetAdminUser=$supersetAdminUser
