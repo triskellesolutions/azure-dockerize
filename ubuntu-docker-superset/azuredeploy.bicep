@@ -31,16 +31,17 @@ param authenticationType string = 'sshPublicKey'
 param adminPasswordOrKey string
 
 @description('Superset admin user name.')
-param supersetAdminUser string = 'superset.admin'
+param supersetAdminUser string
 
 @description('Superset admin password.')
 @secure()
 param supersetAdminUserPassword string
 
 @description('Superset admin user name.')
-param supersetDomainName string = 'superset.triskelle.solutions'
+param supersetDomainName string
 
-
+@description('Remote file repo to pull source files from.')
+param remoteFileRepoUrl string = 'https://raw.githubusercontent.com/triskellesolutions/azure-dockerize/main/ubuntu-docker-superset/'
 
 var imagePublisher = 'Canonical'
 var imageOffer = (ubuntuOSVersion == '20_04-lts-gen2') ? '0001-com-ubuntu-server-focal' : 'UbuntuServer'
@@ -254,7 +255,7 @@ resource vmName_install 'Microsoft.Compute/virtualMachines/extensions@2020-06-01
       ]
     }
     protectedSettings: {
-      commandToExecute: ' sudo mkdir -p /vmsetup && sudo touch /vmsetup/install.log && sudo bash install.sh "${supersetAdminUser}" "${supersetAdminUserPassword}" "${supersetDomainName}" 2>&1 | sudo tee /vmsetup/install.log && sudo chmod 600 /vmsetup/install.log'
+      commandToExecute: ' sudo mkdir -p /vmsetup && sudo touch /vmsetup/install.log && sudo bash install.sh "${supersetAdminUser}" "${supersetAdminUserPassword}" "${supersetDomainName}" "${remoteFileRepoUrl}" 2>&1 | sudo tee /vmsetup/install.log && sudo chmod 600 /vmsetup/install.log'
     }
   }
 }

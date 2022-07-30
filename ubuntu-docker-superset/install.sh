@@ -17,7 +17,7 @@ IFS=$'\n\t'
 supersetAdminUser=$1
 supersetAdminUserPassword=$2
 supersetDomainName=$3
-remoteFileUrl=$4
+remoteFileRepoUrl=$4
 
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -48,7 +48,7 @@ installScript() {
     sudo chmod +x  $filePath$fileName
 }
 
-install Script superset_config.py $PWD "$remoteFileUrl"
+install Script superset_config.py $PWD "$remoteFileRepoUrl"
 
 # -e "SUPERSET_OAUTH_KEY=" \
 # -e "SUPERSET_OAUTH_SECRET=" \
