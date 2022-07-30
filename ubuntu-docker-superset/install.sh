@@ -48,7 +48,7 @@ installScript() {
     sudo chmod +x  $filePath$fileName
 }
 
-install Script superset_config.py $PWD "$remoteFileRepoUrl"
+install Script "local-files/superset_config.py" "$PWD" "$remoteFileRepoUrl"
 
 # -e "SUPERSET_OAUTH_KEY=" \
 # -e "SUPERSET_OAUTH_SECRET=" \
